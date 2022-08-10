@@ -63,22 +63,23 @@ class AbfallData(object):
         _LOGGER.debug("Updating Abfall dates using remote API")
         try:
             payload = {
-                "f_id_kommune": "1723",
-                "f_id_bezirk": "6122,6123",
-                "f_id_strasse": "7384",
-                "f_id_abfalltyp_0": "18",
-                "f_id_abfalltyp_1": "17",
-                "f_id_abfalltyp_2": "86",
-                "f_id_abfalltyp_3": "19",
-                "f_id_abfalltyp_4": "87",
-                "f_id_abfalltyp_5": "33",
+                "f_id_kommune": "4545",
+                "f_id_bezirk": "0",
+                "f_id_strasse": "1325",
+                "f_id_strasse_hnr": "1625",
+                "f_id_abfalltyp_0": "20",
+                "f_id_abfalltyp_1": "527",
+                "f_id_abfalltyp_2": "658",
+                "f_id_abfalltyp_3": "53",
+                "f_id_abfalltyp_4": "31",
+                "f_id_abfalltyp_5": "127",
                 "f_abfallarten_index_max": "6",
-                "f_abfallarten": "18,17,86,19,87,33",
-                "f_zeitraum": "20190101-20301231"
+                "f_abfallarten": "20,627,658,53,31,127",
+                "f_zeitraum": "20220101-20301231"
             }
 
             j = requests.post(
-                "http://api.abfall.io/?key=645adb3c27370a61f7eabbb2039de4f1&modus=d6c5855a62cf32a4dadbc2831f0f295f&waction=export_csv", data=payload, timeout=10)
+                "http://api.abfall.io/?key=8e5e1016ebc11daa152289e532fb984f&modus=d6c5855a62cf32a4dadbc2831f0f295f&waction=export_csv", data=payload, timeout=10)
 
             apiRequest = j.text.split('\n')
             reader = csv.reader(apiRequest, delimiter=";")
